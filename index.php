@@ -1,4 +1,9 @@
+<?php
+    require "functions.php";
+    require "./logic.php";
 
+    $productos = showAll($conn);
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +14,6 @@
     <title>ABM productos</title>
 </head>
 <body>
-    
+    <?php require "./table.php"; ?>
 </body>
 </html>

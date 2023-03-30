@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 30-03-2023 a las 05:15:33
--- Versión del servidor: 10.4.27-MariaDB
--- Versión de PHP: 8.2.0
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 30-03-2023 a las 20:58:03
+-- Versión del servidor: 10.4.24-MariaDB
+-- Versión de PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `abmProductos`
+-- Base de datos: `abmproductos`
 --
 
 -- --------------------------------------------------------
@@ -29,8 +29,16 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `marca` (
   `id_producto` int(11) NOT NULL,
-  `nombre` varchar(100) NOT NULL
+  `marca_nombre` varchar(100) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `marca`
+--
+
+INSERT INTO `marca` (`id_producto`, `marca_nombre`) VALUES
+(9, 'sinteplast'),
+(13, 'ford');
 
 -- --------------------------------------------------------
 
@@ -40,9 +48,9 @@ CREATE TABLE `marca` (
 
 CREATE TABLE `productos` (
   `id_producto` int(11) NOT NULL,
-  `nombre` varchar(100) NOT NULL,
+  `nombre` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
   `precio` int(11) NOT NULL,
-  `descripcion` varchar(300) NOT NULL,
+  `descripcion` varchar(300) COLLATE utf8_spanish_ci NOT NULL,
   `stock` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -51,7 +59,8 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id_producto`, `nombre`, `precio`, `descripcion`, `stock`) VALUES
-(1, 'mesas', 100, 'mesas y sillas', 20);
+(9, 'pinturas ', 100, 'pintura naranja', 10),
+(13, 'falcons verdes ', 100, 'pintura marron', 7);
 
 --
 -- Índices para tablas volcadas
@@ -77,7 +86,7 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Restricciones para tablas volcadas
@@ -87,7 +96,7 @@ ALTER TABLE `productos`
 -- Filtros para la tabla `marca`
 --
 ALTER TABLE `marca`
-  ADD CONSTRAINT `marca_ibfk_1` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id_producto`);
+  ADD CONSTRAINT `marca_ibfk_1` FOREIGN KEY (`id_producto`) REFERENCES `productos` (`id_producto`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
