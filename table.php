@@ -17,11 +17,12 @@
         <td><?php echo $key["marca_nombre"] ?></td>
 
         <form action="" method="post">
-            <input type="hidden"  value="<?php echo $key["id_producto"] ?>" />
-            <td> <button>Eliminar</button> </td>
+            <input type="hidden" name="id_producto" value="<?php echo $key['id_producto'] ?>">
+        <td> <button name="delete" >Eliminar</button> </td>
         </form>
+        
 
-        <td> <button class="btn" onclick="create(`<?php echo $key['nombre']?>`, <?php echo $key['precio']?>, `<?php echo $key['descripcion']?>`, <?php echo $key['stock']?>, `<?php echo $key['marca_nombre']?>`, <?php echo $key['id_producto']?>)">Modificar</button> </td> 
+        <td> <button class="btn" onclick="create(`<?php echo $key['nombre']?>`, <?php echo $key['precio']?>, `<?php echo $key['descripcion']?>`, <?php echo $key['stock']?>, `<?php echo $key['marca_nombre']?>`, <?php echo $key['id_producto']?>, 'actualizar')">Modificar</button> </td> 
 
     </tr>
 <?php endforeach; 
@@ -31,5 +32,9 @@
 
 <form action="" method="post">
     <section class="container"></section>
+</form>
+
+<form action="" method="post">
+    <section class="containerProveedor"></section>
 </form>
 

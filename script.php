@@ -1,5 +1,5 @@
 <script>
-        function create(nombre, precio, descripcion, stock, marca, id){
+        function create(nombre, precio, descripcion, stock, marca, id, tipo){
                 const newElementNombre = document.createElement("input");
                 newElementNombre.type = 'text';
                 newElementNombre.name = 'nombre';
@@ -29,11 +29,31 @@
                 newElementMarca.name = 'marca';
                 newElementMarca.defaultValue = marca;
                 document.querySelector(".container").appendChild(newElementMarca);
+                
+                if(tipo == 'actualizar'){
 
-                const newElementButton = document.createElement("button");
-                newElementButton.name = "modificarDatos"
-                newElementButton.textContent = 'Actualizar';
-                document.querySelector(".container").appendChild(newElementButton);
+                        const newElementButton = document.createElement("button");
+                        newElementButton.name = "modificarDatos"
+                        newElementButton.textContent = 'Actualizar';
+                        document.querySelector(".container").appendChild(newElementButton);
+
+                        const newElementButtonCancelar = document.createElement("button");
+                        newElementButtonCancelar.name = "cancelar"
+                        newElementButtonCancelar.textContent = 'Cancelar';
+                        document.querySelector(".container").appendChild(newElementButtonCancelar);
+                        
+                }else if(tipo == 'nuevoProducto'){
+
+                        const newElementButtonCargar = document.createElement("button");
+                        newElementButtonCargar.name = "nuevoProducto"
+                        newElementButtonCargar.textContent = 'Cargar Producto';
+                        document.querySelector(".container").appendChild(newElementButtonCargar);
+
+                        const newElementButtonCancelar = document.createElement("button");
+                        newElementButtonCancelar.name = "cancelar"
+                        newElementButtonCancelar.textContent = 'Cancelar';
+                        document.querySelector(".container").appendChild(newElementButtonCancelar);
+                }
 
                 const newElementId = document.createElement("input");
                 newElementId.type = 'hidden';
@@ -48,6 +68,9 @@
         }
 
 
+        function createProveedor(){
+              //TODO  
+        }
 
 
 </script>

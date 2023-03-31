@@ -26,7 +26,7 @@
     }
 
     function searchID($conn, $nombre){
-        $sql = "SELECT id_producto FROM productos WHERE nombre=:nombre";
+        $sql = "SELECT MAX(id_producto) id_producto FROM productos WHERE nombre=:nombre";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(':nombre', $nombre);
         $stmt->execute();
@@ -51,6 +51,8 @@
     }
 
     function modifyProduct($conn, $nombre, $precio, $descripcion, $stock, $marca, $id){
+
+        updateMarca($conn, $id, $marca);
         $sql = "UPDATE productos SET nombre=:nombre, precio=$precio, descripcion=:descripcion, stock=$stock WHERE id_producto=$id";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(":nombre", $nombre);
@@ -58,6 +60,22 @@
 
         $result = $stmt->execute();
         return $result;
+    }
+
+    function updateMarca($conn, $id_producto, $marca){
+        $sql= "UPDATE marca SET marca_nombre = :marca_nombre WHERE id_producto=$id_producto";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam('marca_nombre', $marca);
+        $result = $stmt->execute();
+        return $result;
+    }
+
+    function deleteOne($conn, $id_producto){
+        $sql = "DELETE FROM productos WHERE id_producto = :id_producto";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(":id_producto", $id_producto);
+        $result = $stmt->execute();
+        
     }
 
     //loadProduct($conn, "falcons verdes ", 100, "pintura verde", 10, "ford");

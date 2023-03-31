@@ -15,5 +15,7 @@
 </head>
 <body>
     <?php require "./table.php"; ?>
+    <button onclick="create('',0,'',0,'',0, 'nuevoProducto')" >Nuevo producto</button>
+    <button>Nueva marca/proveedor</button>
 </body>
 </html>
