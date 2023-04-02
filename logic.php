@@ -14,5 +14,13 @@
         cargarMarca($conn, $_POST['cargarMarca']);
     }
 
+    if(isset($_POST['eliminar_marca'])){
+        eliminarMarca($conn, $_POST['id_marca']);
+    }
+
+    if(isset($_POST['modificarMarcaBoton'])){
+        actualizarMarca($conn, $_POST['nombre_anterior'], $_POST['modificarMarca']);
+    }
+
     header('Location: ./index.php');
 ?>

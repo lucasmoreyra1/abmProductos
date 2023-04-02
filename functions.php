@@ -87,13 +87,40 @@
     }
 
     function BuscarNombres_marca($conn){
-        $sql = "SELECT nombre_marca FROM nombres_marca";
+        $sql = "SELECT id_marca, nombre_marca FROM nombres_marca";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
-        $result = $stmt->fetchAll(PDO::FETCH_COLUMN);
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $result;
     }
 
+    function actualizarMarca($conn, $nombre_anterior, $nombre_marca){
+        $sql = 'UPDATE nombres_marca SET nombre_marca = :nombre_marca WHERE nombre_marca = :nombre_anterior';
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':nombre_marca', $nombre_marca);
+        $stmt->bindParam(':nombre_anterior', $nombre_anterior);
+        $result = $stmt->execute();
+        actualziarProductosMarca($conn, $nombre_anterior, $nombre_marca);
+        return $result;
+    }
+
+    function eliminarMarca($conn, $nombre_marca){
+        $sql = "DELETE FROM nombres_marca WHERE nombre_marca=:id_marca";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':id_marca', $nombre_marca);
+        $result = $stmt->execute();
+        return $result;
+    }
+
+
+    function actualziarProductosMarca($conn, $nombre_anterior, $nombre_marca){
+        $sql = 'UPDATE marca SET marca_nombre = :nombre_marca WHERE marca_nombre = :nombre_anterior';
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':nombre_marca', $nombre_marca);
+        $stmt->bindParam(':nombre_anterior', $nombre_anterior);
+        $result = $stmt->execute();
+        return $result;
+    }
     //loadProduct($conn, "falcons verdes ", 100, "pintura verde", 10, "ford");
     //deleteProduct($conn, 4);
 

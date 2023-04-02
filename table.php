@@ -36,8 +36,5 @@
     <section class="container"></section>
 </form>
 
-<form action="./logic.php" method="post">
-    <section class="containerProveedor"></section>
-</form>
 
 

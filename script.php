@@ -63,10 +63,7 @@
                 newElementId.defaultValue = id;
                 document.querySelector(".container").appendChild(newElementId);
 
-                const pausarBoton = document.querySelectorAll('.btn');
-                pausarBoton.forEach(element => {
-                        element.disabled = true;
-                });
+                pausarBotones();
         }
 
 
@@ -74,17 +71,19 @@
                 const newElementProveedor = document.createElement("input");
                 newElementProveedor.type = 'text';
                 newElementProveedor.name = 'cargarMarca';
-                document.querySelector(".containerProveedor").appendChild(newElementProveedor);
+                document.querySelector(".containerMarcas").appendChild(newElementProveedor);
 
                 const newElementButton = document.createElement("button");
                 newElementButton.name = "cargarMarcaBoton";
                 newElementButton.textContent = 'Cargar Marca';
-                document.querySelector(".containerProveedor").appendChild(newElementButton);
+                document.querySelector(".containerMarcas").appendChild(newElementButton);
 
                 const newElementButtonCancelar = document.createElement("button");
                 newElementButtonCancelar.name = "cancelar"
                 newElementButtonCancelar.textContent = 'Cancelar';
-                document.querySelector(".containerProveedor").appendChild(newElementButtonCancelar)
+                document.querySelector(".containerMarcas").appendChild(newElementButtonCancelar);
+
+                pausarBotones();
         }
 
         function addOptions(elementos){
@@ -93,10 +92,43 @@
                 for (let i = 0; i < elementos.length; i++) {
                         console.log(elementos[i]);
                         const option = document.createElement("option");
-                        option.value = elementos[i];
-                        option.text = elementos[i];
+                        option.value = elementos[i]['nombre_marca'];
+                        option.text = elementos[i]['nombre_marca'];
                         select.add(option);
                 }
+        }
+
+        function modificarMarca(nombre_marca){
+                const modificarMarca = document.createElement('input');
+                modificarMarca.type = 'text';
+                modificarMarca.name = 'modificarMarca'
+                modificarMarca.defaultValue = nombre_marca;
+                document.querySelector('.containerMarcas').appendChild(modificarMarca);
+
+                const newElementButton = document.createElement("button");
+                newElementButton.name = "modificarMarcaBoton";
+                newElementButton.textContent = 'Cargar Marca';
+                document.querySelector(".containerMarcas").appendChild(newElementButton);
+
+                const newElementButtonCancelar = document.createElement("button");
+                newElementButtonCancelar.name = "cancelar"
+                newElementButtonCancelar.textContent = 'Cancelar';
+                document.querySelector(".containerMarcas").appendChild(newElementButtonCancelar);
+
+                const newElementId = document.createElement("input");
+                newElementId.type = 'hidden';
+                newElementId.name = 'nombre_anterior';
+                newElementId.defaultValue = nombre_marca;
+                document.querySelector(".containerMarcas").appendChild(newElementId);
+
+                pausarBotones();
+        }
+
+        function pausarBotones(){
+                const pausarBoton = document.querySelectorAll('.btn');
+                pausarBoton.forEach(element => {
+                        element.disabled = true;
+                });
         }
 
 

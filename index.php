@@ -16,8 +16,15 @@
     <title>ABM productos</title>
 </head>
 <body>
-    <?php require "./table.php"; echo print_r($nombres_marca) ?>
-    <button class="btn" onclick="create('',0,'',0,'',0, 'nuevoProducto')" >Nuevo producto</button>
-    <button class="btn" onclick="createMarca()">Nueva marca/proveedor</button>
+    <div>
+        <?php require "./table.php"; ?>
+    </div>
+    <div>
+        <button class="btn" onclick="create('',0,'',0,'',0, 'nuevoProducto')" >Nuevo producto</button>
+        <button class="btn" onclick="createMarca()">Nueva marca/proveedor</button>
+    </div>
+    <div>
+        <?php require "tableMarcas.php"; ?>
+    </div>
 </body>
 </html>
