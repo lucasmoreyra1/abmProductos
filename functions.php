@@ -75,7 +75,23 @@
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(":id_producto", $id_producto);
         $result = $stmt->execute();
-        
+
+    }
+
+    function cargarMarca($conn, $nombre_marca){
+        $sql  = 'INSERT INTO nombres_marca (nombre_marca) VALUES (:nombre_marca)';
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':nombre_marca', $nombre_marca);
+        $result = $stmt->execute();
+        return $result;
+    }
+
+    function BuscarNombres_marca($conn){
+        $sql = "SELECT nombre_marca FROM nombres_marca";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_COLUMN);
+        return $result;
     }
 
     //loadProduct($conn, "falcons verdes ", 100, "pintura verde", 10, "ford");

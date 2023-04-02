@@ -1,8 +1,10 @@
 <?php
     require "functions.php";
-    require "./logic.php";
 
-    $productos = showAll($conn);
+
+    $productos = showAll($conn); // busca todos los datos de la base de datos para mostrarlos
+    $nombres_marca = BuscarNombres_marca($conn); // busca solo los proveedores
+    $nombres_marca_json =  json_encode($nombres_marca);
 ?>
 
 <!DOCTYPE html>
@@ -14,8 +16,8 @@
     <title>ABM productos</title>
 </head>
 <body>
-    <?php require "./table.php"; ?>
-    <button onclick="create('',0,'',0,'',0, 'nuevoProducto')" >Nuevo producto</button>
-    <button>Nueva marca/proveedor</button>
+    <?php require "./table.php"; echo print_r($nombres_marca) ?>
+    <button class="btn" onclick="create('',0,'',0,'',0, 'nuevoProducto')" >Nuevo producto</button>
+    <button class="btn" onclick="createMarca()">Nueva marca/proveedor</button>
 </body>
 </html>

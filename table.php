@@ -1,3 +1,4 @@
+
 <table border="1">
     <tr>
         <td>Id producto: </td>
@@ -16,25 +17,27 @@
         <td><?php echo $key["stock"] ?></td>
         <td><?php echo $key["marca_nombre"] ?></td>
 
-        <form action="" method="post">
+        <form action="./logic.php" method="post">
             <input type="hidden" name="id_producto" value="<?php echo $key['id_producto'] ?>">
-        <td> <button name="delete" >Eliminar</button> </td>
+        <td> <button class='btn' name="delete" >Eliminar</button> </td>
         </form>
-        
 
-        <td> <button class="btn" onclick="create(`<?php echo $key['nombre']?>`, <?php echo $key['precio']?>, `<?php echo $key['descripcion']?>`, <?php echo $key['stock']?>, `<?php echo $key['marca_nombre']?>`, <?php echo $key['id_producto']?>, 'actualizar')">Modificar</button> </td> 
+
+        <td> <button class="btn" onclick="create(`<?php echo $key['nombre']?>`, <?php echo $key['precio']?>, `<?php echo $key['descripcion']?>`, <?php echo $key['stock']?>, `<?php echo $key['marca_nombre']?>`, <?php echo $key['id_producto']?>, 'actualizar')">Modificar</button> </td>
 
     </tr>
-<?php endforeach; 
+<?php endforeach;
     require 'script.php';
+
 ?>
 </table>
 
-<form action="" method="post">
+<form action="./logic.php" method="post">
     <section class="container"></section>
 </form>
 
-<form action="" method="post">
+<form action="./logic.php" method="post">
     <section class="containerProveedor"></section>
 </form>
+
 
