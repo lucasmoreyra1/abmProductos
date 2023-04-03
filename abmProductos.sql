@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-03-2023 a las 20:58:03
+-- Tiempo de generación: 03-04-2023 a las 22:26:51
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -37,8 +37,31 @@ CREATE TABLE `marca` (
 --
 
 INSERT INTO `marca` (`id_producto`, `marca_nombre`) VALUES
-(9, 'sinteplast'),
-(13, 'ford');
+(18, 'asfasf'),
+(23, 'ghmgh'),
+(24, 'pepsi'),
+(27, 'sfasfasd'),
+(28, 'aaaaaf'),
+(29, 'aaaaaf');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `nombres_marca`
+--
+
+CREATE TABLE `nombres_marca` (
+  `id_marca` int(11) NOT NULL,
+  `nombre_marca` text COLLATE utf8_spanish2_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `nombres_marca`
+--
+
+INSERT INTO `nombres_marca` (`id_marca`, `nombre_marca`) VALUES
+(6, 'aaaaaf'),
+(10, 'pepito0s');
 
 -- --------------------------------------------------------
 
@@ -59,8 +82,12 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id_producto`, `nombre`, `precio`, `descripcion`, `stock`) VALUES
-(9, 'pinturas ', 100, 'pintura naranja', 10),
-(13, 'falcons verdes ', 100, 'pintura marron', 7);
+(18, 'faasfas', 0, 'asfasfasf', 0),
+(23, 'safasfasf', 3, 'fghndfg', 3),
+(24, 'botella', 4, 'fgj', 4),
+(27, 'fgfd', 2, 'dfhd', 3),
+(28, 'asfasf', 4, 'gggg', 5),
+(29, 'gk', 3, 'hgkg', 4);
 
 --
 -- Índices para tablas volcadas
@@ -73,6 +100,12 @@ ALTER TABLE `marca`
   ADD KEY `id_producto` (`id_producto`);
 
 --
+-- Indices de la tabla `nombres_marca`
+--
+ALTER TABLE `nombres_marca`
+  ADD PRIMARY KEY (`id_marca`);
+
+--
 -- Indices de la tabla `productos`
 --
 ALTER TABLE `productos`
@@ -83,10 +116,16 @@ ALTER TABLE `productos`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `nombres_marca`
+--
+ALTER TABLE `nombres_marca`
+  MODIFY `id_marca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- Restricciones para tablas volcadas
