@@ -3,6 +3,7 @@
                 const newElementNombre = document.createElement("input");
                 newElementNombre.type = 'text';
                 newElementNombre.name = 'nombre';
+                newElementNombre.placeholder = "nombre";
                 newElementNombre.defaultValue = nombre;
                 newElementNombre.className = 'clase-utilizada';
                 document.querySelector(".container").appendChild(newElementNombre);
@@ -10,18 +11,21 @@
                 const newElementPrecio = document.createElement("input");
                 newElementPrecio.type = 'number';
                 newElementPrecio.name = 'precio';
+                newElementPrecio.labels = 'precio'
                 newElementPrecio.defaultValue = precio;
                 document.querySelector(".container").appendChild(newElementPrecio);
 
                 const newElementDescripcion = document.createElement("input");
                 newElementDescripcion.type = 'text';
                 newElementDescripcion.name = 'descripcion';
+                newElementDescripcion.placeholder = 'Descripcion';
                 newElementDescripcion.defaultValue = descripcion;
                 document.querySelector(".container").appendChild(newElementDescripcion);
 
                 const newElementStock = document.createElement("input");
                 newElementStock.type = 'number';
                 newElementStock.name = 'stock';
+                newElementStock.placeholder = 'Stock';
                 newElementStock.defaultValue = stock;
                 document.querySelector(".container").appendChild(newElementStock);
 
