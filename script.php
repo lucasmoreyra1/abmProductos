@@ -4,6 +4,7 @@
                 newElementNombre.type = 'text';
                 newElementNombre.name = 'nombre';
                 newElementNombre.defaultValue = nombre;
+                newElementNombre.className = 'clase-utilizada';
                 document.querySelector(".container").appendChild(newElementNombre);
 
                 const newElementPrecio = document.createElement("input");
